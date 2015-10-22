@@ -61,5 +61,12 @@ namespace BlackJack.model
         {
             return m_player.CalcScore();
         }
+
+        public bool stand()
+        {
+            return m_dealer.Stand();
+
+        }
+      
     }
 }

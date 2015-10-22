@@ -1,0 +1,4 @@
+C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\bin\Debug\BlackJack.exe
+C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\bin\Debug\BlackJack.pdb
+C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\obj\Debug\BlackJack.exe
+C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\obj\Debug\BlackJack.pdb
