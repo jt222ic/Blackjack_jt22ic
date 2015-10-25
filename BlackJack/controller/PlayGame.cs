@@ -5,15 +5,25 @@ using System.Text;
 
 namespace BlackJack.controller
 {
-    class PlayGame
+    class PlayGame : model.rules.IgameObserver
     {
-
+        
         private model.Game a_game;
         private view.IView a_view;
-        public bool Play(model.Game A_game, view.IView A_view)  //hidden dependencies
+
+
+
+        public PlayGame(model.Game A_game,
+            view.IView A_view)
         {
-            a_game = A_game;
-            a_view = A_view;
+               a_game = A_game;
+              a_view = A_view;
+              a_game.addSub(this);
+        }
+        
+        public bool Play()  //hidden dependencies
+        {
+           
             a_view.DisplayWelcomeMessage();
             
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
@@ -42,14 +52,14 @@ namespace BlackJack.controller
             return input != view.Options.Quit;
         }
 
-        public void Timedraw()
+        public void TimeDraw()
         {
-            Timedraw();
+           
             a_view.DisplayWelcomeMessage();
             
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
             a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(650);
         }
     }
 }

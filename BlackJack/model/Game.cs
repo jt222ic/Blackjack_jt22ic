@@ -67,6 +67,10 @@ namespace BlackJack.model
             return m_dealer.Stand();
 
         }
+        public void addSub(model.rules.IgameObserver o)
+        {
+            m_dealer.Addsub(o);
+        }
       
     }
 }
