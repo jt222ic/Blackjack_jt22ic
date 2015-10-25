@@ -8,16 +8,35 @@ namespace BlackJack.view
     class SimpleView : IView
     {
 
+        private const char PLAY_KEY = 'p';
+        private const char HIT_KEY = 'h';       // inspired kk222hk
+        private const char STAND_KEY = 's';
+        private const char QUIT_KEY = 'q';
+
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
             System.Console.WriteLine("Hello Black Jack World");
-            System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+            System.Console.WriteLine("Type '{0}' to Play, '{1}' to Hit, '{2}' to Stand or '{3}' to Quit\n", PLAY_KEY, HIT_KEY,STAND_KEY,QUIT_KEY);
+          
         }
 
-        public int GetInput()
+        public Options GetInput()
         {
-            return System.Console.In.Read();
+            switch (System.Console.In.Read())
+            {
+                case PLAY_KEY:
+                    return Options.Play;
+                case HIT_KEY:
+                    return Options.Hit;
+                case STAND_KEY:
+                    return Options.Stand;
+                case QUIT_KEY:
+                    return Options.Quit;
+                default:
+                    return Options.Default;
+                
+            }                                   // skapar switch satsen för constat char värde
         }
 
         public void DisplayCard(model.Card a_card)

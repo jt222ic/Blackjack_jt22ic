@@ -13,14 +13,14 @@ namespace BlackJack.model
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
 
-        
+        List<rules.IgameObserver> m_observer;
 
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
-            
+            m_observer = new List<rules.IgameObserver>();
         }
 
         public bool NewGame(Player a_player)
@@ -34,13 +34,10 @@ namespace BlackJack.model
             }
             return false;
         }
-
         public bool Hit(Player a_player)
         {
             if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver())
             {
-               
-
                 DealPlayerCard(true, a_player);
 
                 if (a_player.CalcScore() >= 21)
@@ -52,22 +49,30 @@ namespace BlackJack.model
             }
             return false;
         }
+        public void Addsub(rules.IgameObserver sub)
+        {
+            m_observer.Add(sub);
+        }
 
         public bool Stand()
         {
             if (m_deck != null)
             {
                 ShowHand();
-
+                //foreach (Card card in GetHand())
+                //{
+                //    card.Show(true);
+                //}
                 while (m_hitRule.DoHit(this))
                 {
                     DealPlayerCard(true, this);
                 }
                 
+                // foreach get hand?
+                return true;
             }
             return false;
            
-
         }
         public void DealPlayerCard(bool hiddencard,Player a_player)
         {
@@ -76,9 +81,13 @@ namespace BlackJack.model
             c = m_deck.GetCard();
             c.Show(true);
             a_player.DealCard(c);
+            foreach(rules.IgameObserver j in m_observer)
+            {
+                j.TimeDraw();
+            }
+
 
         }
-
 
         public bool IsDealerWinner(Player a_player)
         {

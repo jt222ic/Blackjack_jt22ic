@@ -6,17 +6,40 @@ using System.Text;
 namespace BlackJack.view
 {
     class SwedishView : IView 
+
+
     {
+
+
+        private const char PLAY_KEY = 'p';
+        private const char HIT_KEY = 'h';            // kk222hk  inspired
+        private const char STAND_KEY = 's';
+        private const char QUIT_KEY = 'q';
+
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
             System.Console.WriteLine("Hej Black Jack Världen");
             System.Console.WriteLine("----------------------");
-            System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+            System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n",PLAY_KEY,HIT_KEY,STAND_KEY,QUIT_KEY);
         }
-        public int GetInput()
+        public Options GetInput()
         {
-            return System.Console.In.Read();
+           switch (System.Console.In.Read())
+                    {
+
+                  case PLAY_KEY:
+                    return Options.Play;
+                case HIT_KEY:
+                    return Options.Hit;
+                case STAND_KEY:
+                    return Options.Stand;
+                case QUIT_KEY:                  
+                    return Options.Quit;
+               default:
+                    return Options.Default;    // remeber to have default or it wont return code path
+
+}
         }
         public void DisplayCard(model.Card a_card)
         {

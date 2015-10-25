@@ -2,3 +2,8 @@ C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\bin\Debug\BlackJack.exe
 C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\bin\Debug\BlackJack.pdb
 C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\obj\Debug\BlackJack.exe
 C:\Users\TEMP\Desktop\blackjack_csharp\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\jt222ic\Desktop\blackjack\Blackjack_jt22ic\BlackJack\obj\Debug\BlackJack.exe
+C:\Users\jt222ic\Desktop\blackjack\Blackjack_jt22ic\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\jt222ic\Desktop\blackjack\Blackjack_jt22ic\BlackJack\bin\Debug\BlackJack.exe
+C:\Users\jt222ic\Desktop\blackjack\Blackjack_jt22ic\BlackJack\bin\Debug\BlackJack.pdb
+C:\Users\jt222ic\Desktop\blackjack\Blackjack_jt22ic\BlackJack\obj\Debug\BlackJack.csprojResolveAssemblyReference.cache
