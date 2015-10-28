@@ -13,9 +13,11 @@ namespace BlackJack.model.rules
             a_dealer.DealPlayerCard(true, a_player);
             a_dealer.DealPlayerCard(true, a_dealer);
             a_dealer.DealPlayerCard(true, a_player);
-            a_dealer.DealPlayerCard(false, a_dealer);            // samma för player 
-              // dealer ska köra en åt gången 
             
+           
+          
+            
+              
             return true;
         }
     }

@@ -21,7 +21,7 @@ namespace BlackJack.model.rules
             return new Soft17();
         }
 
-        public IPlayerLooseWhenDraw PlayerLose()
+        public IPlayerLooseWhenDraw playerLose()
         {
             return new PlayerLose();
         }

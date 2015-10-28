@@ -7,6 +7,8 @@ namespace BlackJack.model.rules
 {
     interface IPlayerLooseWhenDraw
     {
-        bool PlayerLoose(Player a_player, Dealer a_dealer);
+        
+
+         bool PlayerLoose(Player a_player);
     }
 }

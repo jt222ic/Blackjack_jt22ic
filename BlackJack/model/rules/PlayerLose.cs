@@ -8,15 +8,10 @@ namespace BlackJack.model.rules
     class PlayerLose : IPlayerLooseWhenDraw
     {
 
-        public bool PlayerLoose(Player a_player, Dealer a_dealer)
+        public bool PlayerLoose(Player a_player)
         {
-
-            if (a_player.CalcScore() == a_dealer.CalcScore())
-            {
-                return true;
-            }
-            return false;
-
+            return true;
+         
         }
 
     }

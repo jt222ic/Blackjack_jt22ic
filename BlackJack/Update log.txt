@@ -1,0 +1,8 @@
+from received peer review:
+
+
+fixed:
+
+Class diagram which dealer associate with interface, controller to interfaceobserver is realization arrow
+
+code changes card show hidden, limit of 17 card, implement the playerwhen loose draw interface

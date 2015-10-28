@@ -12,7 +12,7 @@ namespace BlackJack.model
         
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
-
+        private rules.IPlayerLooseWhenDraw m_draw;
         List<rules.IgameObserver> m_observer;
 
 
@@ -20,6 +20,7 @@ namespace BlackJack.model
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
+            m_draw = a_rulesFactory.playerLose();
             m_observer = new List<rules.IgameObserver>();
         }
 
@@ -58,17 +59,15 @@ namespace BlackJack.model
         {
             if (m_deck != null)
             {
-                ShowHand();
-                //foreach (Card card in GetHand())
-                //{
-                //    card.Show(true);
-                //}
+                foreach (Card card in GetHand())
+                {
+                    card.Show(true);
+                }
+               
                 while (m_hitRule.DoHit(this))
                 {
                     DealPlayerCard(true, this);
                 }
-                
-                // foreach get hand?
                 return true;
             }
             return false;
@@ -98,6 +97,10 @@ namespace BlackJack.model
             else if (CalcScore() > g_maxScore)
             {
                 return false;
+            }
+            else if (a_player.CalcScore() == CalcScore())
+            {
+                return m_draw.PlayerLoose(a_player);
             }
             return CalcScore() >= a_player.CalcScore();
         }
